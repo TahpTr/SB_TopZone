@@ -1,0 +1,52 @@
+package com.example.springboot.controller;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.springboot.DAO.ContactBusiness;
+import com.example.springboot.DAO.UserDAO;
+import com.example.springboot.model.*;
+
+@Controller
+public class MVCController {
+	
+	UserDAO udao;
+	
+	@RequestMapping("/")
+	public String welcome() {
+	 
+	    return "index1";
+	}
+	
+	 @RequestMapping("/list_contact")
+	    public String listContact(Model model) {
+	         
+	        ContactBusiness business = new ContactBusiness();
+	        List<Contact> contactList = business.getContactList();
+	         
+	        model.addAttribute("contacts", contactList);       
+	         
+	        return "contact";
+	    }
+	 @GetMapping("/register")
+		public String showForm(Model model) {
+			User user = new User();
+			model.addAttribute("user", user);
+			
+			return "register_form";
+		}
+			
+		@PostMapping("/register")
+		public String submitForm(@ModelAttribute("user") User user) {
+			System.out.println(user);
+			return "register_success";
+		}
+}

@@ -1,0 +1,6 @@
+package com.example.springboot.DAO;
+
+public class UserDAOImple implements UserDAO{
+		private UserDAO udao = new UserDAO();
+		udao.list();
+}

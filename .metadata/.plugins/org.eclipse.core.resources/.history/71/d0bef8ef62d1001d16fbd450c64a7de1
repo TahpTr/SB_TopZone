@@ -1,0 +1,7 @@
+package com.example.springboot.DAO;
+
+import com.example.springboot.model.*;
+
+public interface ProductDAO {
+	List<Product> getProductList();
+}

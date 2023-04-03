@@ -1,0 +1,23 @@
+package com.example.springboot.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import com.example.springboot.model.*;
+
+@Controller
+public class MVCController {
+	
+	@RequestMapping("/list_contact")
+    public String listUser(Model model) {
+         
+        ContactBusiness business = new ContactBusiness();
+        List<User> contactList = business.getContactList();
+         
+        model.addAttribute("contacts", contactList);       
+         
+        return "contact";
+}
+}

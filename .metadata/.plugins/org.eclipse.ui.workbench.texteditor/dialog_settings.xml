@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="true"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="@{"/>
+		<list key="findhistory">
+			<item value="@{"/>
+			<item value="intro-topzone"/>
+			<item value="n"/>
+			<item value="${categories"/>
+			<item value="@{categories{"/>
+			<item value="@{categories"/>
+			<item value="128GB"/>
+			<item value="iPhone 14 Pro Max 128GB"/>
+			<item value="Mac"/>
+			<item value="iPhone"/>
+			<item value="User"/>
+			<item value="contact"/>
+			<item value="ISO-8859-1"/>
+			<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;"/>
+		</list>
+		<list key="replacehistory">
+			<item value=""/>
+			<item value="Product"/>
+			<item value="user"/>
+			<item value="UTF-8"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1322"/>
+		<item key="DIALOG_Y_ORIGIN" value="256"/>
+		<item key="DIALOG_WIDTH" value="336"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

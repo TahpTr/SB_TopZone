@@ -1,0 +1,12 @@
+package com.example.springboot.controller;
+
+import com.example.springboot.DAO.CategoryDAO;
+
+@Controller
+public class CategoryController {
+
+	
+	private CategoryDAO cdao; 
+	
+	public String show
+}

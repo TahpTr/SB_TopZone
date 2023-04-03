@@ -1,0 +1,45 @@
+package com.example.springboot.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.springboot.DAO.ContactBusiness;
+import com.example.springboot.DAO.UserDAO;
+import com.example.springboot.model.*;
+
+@Controller
+public class MVCController {
+	
+	
+	UserDAO udao;
+	
+	@RequestMapping("/")
+	public String welcome() {
+	 
+	    return "index";
+	}
+	
+	 @RequestMapping("/list_contact")
+	    public String listContact(Model model) {
+	         
+	        ContactBusiness business = new ContactBusiness();
+	        List<Contact> contactList = business.getContactList();
+	         
+	        model.addAttribute("contacts", contactList);       
+	         
+	        return "contact";
+	    }
+	 @RequestMapping("/list_user")
+	    public String listUser(Model model) {
+	         
+	        List<User> userList = udao.getUserlist();
+	         
+	        model.addAttribute("users", userList);       
+	         
+	        return "user";
+	    }
+}

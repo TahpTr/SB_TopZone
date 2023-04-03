@@ -1,0 +1,19 @@
+package com.example.springboot.DAO;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.springboot.model.User;
+
+public class UserDAOImpl implements UserDAO{
+
+		@Override
+		public List<User> getUserlist() {
+			 List<User> listUser = new ArrayList<>();
+	         
+		        listUser.add(new User(1, "Phat", "123", "phat1452vn@gmail.com","D20","0969620321",false,false));
+		        listUser.add(new User(2, "Phat2", "123", "phat1452vn@gmail.com","D20","0969620321",false,false));
+
+		        return listUser;
+		}
+}

@@ -1,0 +1,14 @@
+package com.example.springboot.DAO;
+
+import java.util.List;
+
+import com.example.springboot.model.Product;
+
+public class ProductDAPImpl implements ProductDAO {
+
+	@Override
+	List<Product> getProductList()
+	{
+		
+	};
+}

@@ -1,0 +1,56 @@
+package com.example.springboot;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.jupiter.api.Test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class HelloControllerTest {
+
+	@Autowired
+	private MockMvc mvc;
+
+	@Test
+	public void getHello() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().string(equalTo("Greetings from Spring Boot!")));
+	}
+}
+MockMvcđến từ Spring Test và cho phép bạn, thông qua một tập hợp các lớp trình tạo thuận tiện, gửi các yêu cầu HTTP vào DispatcherServletvà đưa ra các xác nhận về kết quả. Lưu ý việc sử dụng @AutoConfigureMockMvcvà @SpringBootTestđể tiêm một MockMvcthể hiện. Đã sử dụng @SpringBootTest, chúng tôi đang yêu cầu tạo toàn bộ bối cảnh ứng dụng. Một cách khác là yêu cầu Spring Boot chỉ tạo các lớp web của ngữ cảnh bằng cách sử dụng @WebMvcTest. Trong cả hai trường hợp, Spring Boot sẽ tự động cố gắng định vị lớp ứng dụng chính của ứng dụng của bạn, nhưng bạn có thể ghi đè lên nó hoặc thu hẹp nó xuống nếu bạn muốn xây dựng thứ gì đó khác biệt.
+
+Ngoài việc mô phỏng chu kỳ yêu cầu HTTP, bạn cũng có thể sử dụng Spring Boot để viết một bài kiểm tra tích hợp toàn ngăn xếp đơn giản. Ví dụ: thay vì (hoặc cũng như) bài kiểm tra giả được hiển thị trước đó, chúng tôi có thể tạo bài kiểm tra sau (từ src/test/java/com/example/springboot/HelloControllerIT.java):
+
+package com.example.springboot;
+
+import org.junit.jupiter.api.Test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.ResponseEntity;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class HelloControllerIT {
+
+	@Autowired
+	private TestRestTemplate template;
+
+    @Test
+    public void getHello() throws Exception {
+        ResponseEntity<String> response = template.getForEntity("/", String.class);
+        assertThat(response.getBody()).isEqualTo("Greetings from Spring Boot!");
+    }
+}

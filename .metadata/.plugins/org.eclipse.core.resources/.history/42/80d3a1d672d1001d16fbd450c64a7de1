@@ -1,0 +1,16 @@
+package com.example.springboot.DAOImpl;
+
+import java.util.List;
+
+import com.example.springboot.DAO.ProductDAO;
+import com.example.springboot.model.Product;
+
+public class ProductDAOImpl implements ProductDAO{
+
+	@Override
+	public List<Product> getProductList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.example.springboot.DAO;
+
+import java.util.List;
+
+import com.example.springboot.model.User;
+
+public class UserDAOImple implements UserDAO{
+
+		@Override
+		public List<User> getUserlist() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+}

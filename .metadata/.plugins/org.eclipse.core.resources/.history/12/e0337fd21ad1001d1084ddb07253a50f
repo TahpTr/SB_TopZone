@@ -1,0 +1,8 @@
+package com.example.springboot.DAO;
+
+
+import com.example.springboot.model.*;
+public class UserDAO {
+
+	public List<User> getUserList();
+}

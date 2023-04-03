@@ -1,0 +1,21 @@
+package com.example.springboot.DAO;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.springboot.model.User;
+
+public class UserDAOImpl implements UserDAO{
+
+	@Autowired
+	UserDAO dao;
+	
+		@Override
+		public List<User> getUserlist() {
+			 List<User> listUser =  dao.getUserlist();
+	         	
+		        return listUser;
+		}
+}

@@ -1,0 +1,9 @@
+package com.example.springboot.DAO;
+
+import com.example.springboot.repository.CategoryRepository;
+import com.example.springboot.model.*;
+
+public interface CategoryDAO extends CategoryRepository{
+
+	List<Category> getAllCategory();
+}

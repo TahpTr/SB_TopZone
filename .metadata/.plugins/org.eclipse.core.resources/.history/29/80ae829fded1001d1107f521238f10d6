@@ -1,0 +1,28 @@
+package com.example.springboot.DAOImpl;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+
+import com.example.springboot.DAO.CategoryDAO;
+import com.example.springboot.model.Category;
+import com.example.springboot.repository.CategoryRepository;
+
+public class CategoryDAOImpl implements CategoryDAO{
+
+	private CategoryRepository cateRepository;
+	
+
+	@Override
+	public List<Category> getAllCategory() {
+		// TODO Auto-generated method stub
+		return cateRepository.findAll();
+	}
+
+}

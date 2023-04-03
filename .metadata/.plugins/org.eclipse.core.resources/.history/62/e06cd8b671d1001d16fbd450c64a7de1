@@ -1,0 +1,8 @@
+package com.example.springboot.repository;
+
+import org.springframework.data.jpa.repository.support.JpaRepository;
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
+
+public class ProductRepository extends JpaRepositoryFactory<> {
+
+}
